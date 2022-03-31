@@ -45,7 +45,7 @@ router.post("/:id", authenticate, async (req, res) => {
 //   }
 // });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
   try {
     const todo = await todoModel.findOneAndDelete({ _id: req.params.id });
     return res.status(201).send({ todo });

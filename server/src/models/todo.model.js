@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const todoSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true, minlength: 5, trim: true },
+    title: { type: String, required: true, minlength: 3, },
     body: {
       type: String,
       required: true,
-      minlength: 5,
+      minlength: 2,
     },
     status: { type: Boolean, default: false },
     user_id: {

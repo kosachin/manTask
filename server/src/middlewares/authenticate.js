@@ -10,22 +10,22 @@ const verifyToken = async (token) => {
 };
 
 module.exports = async (req, res, next) => {
-  if (
-    !req.headers.authorization ||
-    !req.headers.authorization.startsWith("Bearer")
-  ) {
-    return res
-      .status(400)
-      .send({ message: "Please provide valid authorization token" });
-  }
-  const bearerToken = req.headers.authorization;
-  const token = bearerToken.split("Bearer ")[1].trim();
-  let user;
   try {
+    if (
+      !req.headers.authorization ||
+      !req.headers.authorization.startsWith("Bearer")
+    ) {
+      return res
+        .status(400)
+        .send({ message: "Please provide valid authorization token" });
+    }
+    const bearerToken = req.headers.authorization;
+    const token = bearerToken.split("Bearer ")[1].trim();
+    let user;
     user = await verifyToken(token);
+    req.user = user.user;
+    return next();
   } catch (err) {
     return res.status(401).send({ message: err.message, location: "catch" });
   }
-  req.user = user.user;
-  return next();
 };
