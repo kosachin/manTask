@@ -7,10 +7,12 @@ export const Todos = () => {
   const { id } = useParams();
   const { token } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
-  const todos = useSelector((store) => store.todo.todos);
+  const { todos } = useSelector((store) => store.todo);
+  const { deleted } = useSelector((store) => store.todo);
   useEffect(() => {
     dispatch(fetchTodos(token, id));
-  }, []);
+    console.log(deleted);
+  }, [deleted]);
   return (
     <div className="md:w-1/2 lg:w-1/2 mx-auto">
       {todos.map((e) => (
