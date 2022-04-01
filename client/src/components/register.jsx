@@ -22,51 +22,51 @@ const Register = () => {
 
   return (
     <form
-      className="flex flex-col space-y-4 bg-slate-400 border-2 p-4 mx-auto md:w-1/2 lg:w-1/3 mt-8"
+      className="flex flex-col bg-slate-400 border-2 p-4  mx-auto w-5/6 md:w-1/2 lg:w-1/3 mt-8 drop-shadow-2xl border-solid rounded-md border-gray-400 md:space-y-4"
       onSubmit={(e) => handleSubmit(e)}
     >
       <h2 className="text-xl text-center text-yellow-400 font-bold">
         Welcome to MERN form 😎!
       </h2>
-      <label>First Name :</label>
+      <label className="mb-2 font-bold">First Name :</label>
       <input
         name="first_name"
         type="text"
         onChange={(e) => handleFieldData(e)}
         placeholder="enter your first name"
-        className="p-2 rounded-sm"
+        className="p-2 rounded-sm mb-2"
         required
       />
-      <label>Last Name :</label>
+      <label className="mb-2 font-bold">Last Name :</label>
       <input
         name="last_name"
         type="text"
         onChange={(e) => handleFieldData(e)}
         placeholder="enter your last name"
-        className="p-2 rounded-sm"
+        className="p-2 rounded-sm mb-2"
         required
       />
-      <label>Email :</label>
+      <label className="mb-2 font-bold">Email :</label>
       <input
         name="email"
         type="email"
         onChange={(e) => handleFieldData(e)}
         placeholder="abc@xyz.com"
-        className="p-2 rounded-sm"
+        className="p-2 rounded-sm mb-2"
         required
       />
-      <label>Password :</label>
+      <label className="mb-2 font-bold">Password :</label>
       <input
         name="password"
         type="password"
         onChange={(e) => handleFieldData(e)}
         placeholder="enter your last name"
-        className="p-2 rounded-sm"
+        className="p-2 rounded-sm mb-2"
         required
       />
       <button
         type="submit"
-        className="flex justify-center w-20 bg-blue-300 text-center p-2 rounded-md font-bold"
+        className="flex justify-center w-20 bg-blue-300 text-center p-2 rounded-md font-bold mb-2"
       >
         Submit
       </button>

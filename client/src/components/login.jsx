@@ -29,40 +29,38 @@ export const Login = () => {
   };
   return (
     <form
-      className="flex flex-col space-y-4 bg-slate-400 border-2 p-4  mx-auto md:w-1/2 lg:w-1/3 mt-8"
+      className="flex flex-col bg-slate-400 border-2 p-4  mx-auto w-5/6 md:w-1/2 lg:w-1/3 mt-8 drop-shadow-2xl border-solid rounded-md border-gray-400 md:space-y-4"
       onSubmit={(e) => handleSubmit(e)}
     >
       <h2 className="text-xl text-center text-yellow-400 font-bold">
         Welcome to MERN form 😎!
       </h2>
-      <label>Email :</label>
+      <label className="font-bold mb-2">Email :</label>
       <input
         name="email"
         type={"email"}
         placeholder="enter your first name"
-        className="p-2 rounded-sm"
+        className="p-2 rounded-sm mb-2"
         onChange={(e) => handleFieldData(e)}
         required
       />
-      <label>Password :</label>
+      <label className="font-bold mb-2">Password :</label>
       <input
         name="password"
         type={"password"}
         placeholder="enter your last name"
-        className="p-2 rounded-sm"
+        className="p-2 rounded-sm mb-4"
         onChange={(e) => handleFieldData(e)}
         required
       />
       <button
         type="submit"
-        className="flex justify-center w-20 bg-blue-300 text-center p-2 rounded-md font-bold"
+        className="flex justify-center  bg-blue-300 text-center p-2 rounded-md font-bold ring-2 ring-blue-700 hover:bg-blue-500 w-full mb-2"
       >
         Submit
       </button>
-      <Link to="/register">
-        <h3 className="hover:text-blue-600">
-          👉 haven't registered yet? register here 👈
-        </h3>
+      <Link to="/register" className="hover:text-blue-600 break-all">
+        👉 haven't registered yet? register here 👈
       </Link>
     </form>
   );

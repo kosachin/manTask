@@ -19,7 +19,6 @@ const init = {
   todos: [],
   loading: false,
   error: "",
-  deleted: "",
 };
 
 const reducer = (store = init, { payload, type }) => {
@@ -31,9 +30,9 @@ const reducer = (store = init, { payload, type }) => {
     case GET_TODOS_FAILURE:
       return { ...store, loading: false, error: payload };
     case ADD_TODOS_REQUEST:
-      return { ...store, loading: true, deleted: true };
+      return { ...store, loading: true };
     case ADD_TODOS_SUCCESS:
-      return { ...store, loading: false, deleted: false };
+      return { ...store, loading: false };
     case ADD_TODOS_FAILURE:
       return { ...store, loading: false, error: payload };
     default:
@@ -75,7 +74,7 @@ export const createTodo = (token, id, data) => (dispatch) => {
     });
 };
 
-export const deleteTodo = (token, id) => (dispatch) => {
+export const deleteTodo = (token, id, user_id) => (dispatch) => {
   dispatch(addUserTodosRequest());
   axios
     .delete(`http://localhost:313/delete/${id}`, {
@@ -85,6 +84,25 @@ export const deleteTodo = (token, id) => (dispatch) => {
     })
     .then(() => {
       dispatch(addUserTodosSuccess());
+      dispatch(fetchTodos(token, user_id));
+      console.log("deleted succefully");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const editTodo = (token, data, id, user_id) => (dispatch) => {
+  dispatch(addUserTodosRequest());
+  axios
+    .patch(`http://localhost:313/edit/${id}`, data, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    })
+    .then(() => {
+      dispatch(addUserTodosSuccess());
+      dispatch(fetchTodos(token, user_id));
       console.log("deleted succefully");
     })
     .catch((err) => {

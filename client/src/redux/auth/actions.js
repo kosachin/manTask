@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
   LOGIN_USER_REQUEST,
   LOGIN_USER_SUCCESS,

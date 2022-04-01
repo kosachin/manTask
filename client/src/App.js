@@ -3,6 +3,7 @@ import { Login } from "./components/login";
 import { Navbar } from "./components/navbar";
 import { Todos } from "./components/todos";
 import { AddTodo } from "./components/addTodo";
+import { EditTodo } from "./components/editTodo";
 import { Routes, Route } from "react-router-dom";
 import Register from "./components/register";
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path=":id" element={<Todos />} />
         <Route path=":id/add" element={<AddTodo />} />
+        
       </Route>
     </Routes>
   );

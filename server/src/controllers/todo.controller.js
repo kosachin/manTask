@@ -30,20 +30,20 @@ router.post("/:id", authenticate, async (req, res) => {
   }
 });
 
-// router.patch("/:id/edit", async (req, res) => {
-//   try {
-//     const todo = await todoModel.findByIdAndUpdate(
-//       { _id: req.params.id },
-//       {
-//         ...req.body,
-//       },
-//       { new: true }
-//     );
-//     return res.status(201).send({ todo });
-//   } catch ({ message }) {
-//     return res.status(400).send({ error: message });
-//   }
-// });
+router.patch("/edit/:id", authenticate, async (req, res) => {
+  try {
+    const todo = await todoModel.findByIdAndUpdate(
+      { _id: req.params.id },
+      {
+        ...req.body,
+      },
+      { new: true }
+    );
+    return res.status(201).send({ todo });
+  } catch ({ message }) {
+    return res.status(400).send({ error: message });
+  }
+});
 
 router.delete("/delete/:id", async (req, res) => {
   try {

@@ -20,28 +20,24 @@ export const Navbar = () => {
       {user.isLogged ? (
         <>
           <div className="bg-slate-600">
-            <div className="flex justify-between items-center p-4 font-bold  lg:w-1/2 mx-auto">
-              <Link to="/" className="p-2">
+            <div className="flex justify-between  items-center p-4 font-bold  lg:w-1/2 mx-auto">
+              <Link to="/" className="p-2  ">
                 ManTask
               </Link>
-              <Link to={`/${user.id}/add`} className="p-2;">
+              <Link to={`/${user.id}/add`} className="p-2  ">
                 <IoIosAddCircle size={"2em"} />
               </Link>
-              <div className="space-x-8 flex items-center">
+              <div className="md:space-x-8 flex items-center">
                 <Link
                   to={`/${user.id}`}
-                  className="hidden md:block lg:block font-bold hover:bg-slate-500 rounded-md p-2"
+                  className="flex justify-center items-center  bg-red-400 rounded-full w-10 h-10"
                 >
-                  {user.username}
+                  {user.username[0]}
                 </Link>
-                <Link
-                  to={`/${user.id}`}
-                  className="bg-red-400 rounded-full w-10 h-10 p-2"
-                ></Link>
                 <Link
                   to="/"
                   onClick={() => handleLogout()}
-                  className="font-bold  hover:bg-slate-500 rounded-md p-2"
+                  className="hidden md-block lg:block font-bold  hover:bg-slate-500 rounded-md p-2"
                 >
                   LogOut
                 </Link>

@@ -26,7 +26,7 @@ export const AddTodo = () => {
   };
   return (
     <form
-      className="flex flex-col space-y-4 bg-slate-400 border-2 p-4  mx-auto md:w-3/4 lg:w-1/3 mt-8"
+      className="flex flex-col space-y-4 w-5/6 bg-slate-400 shadow-3xl p-4 mx-auto md:w-3/4 lg:w-1/3 mt-8 drop-shadow-2xl border-solid rounded-md border-2 border-gray-400 "
       onSubmit={(e) => handleSubmit(e)}
     >
       <label>title :</label>
@@ -49,7 +49,7 @@ export const AddTodo = () => {
       />
       <button
         type="submit"
-        className="flex justify-center w-20 bg-blue-300 text-center p-2 rounded-md font-bold"
+        className="flex justify-center  bg-blue-300 text-center p-2 rounded-md font-bold ring-2 ring-blue-700 hover:bg-blue-500 justify-self-center w-full"
       >
         Submit
       </button>
