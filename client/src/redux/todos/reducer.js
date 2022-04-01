@@ -19,6 +19,7 @@ const init = {
   todos: [],
   loading: false,
   error: "",
+  page: 1,
 };
 
 const reducer = (store = init, { payload, type }) => {
@@ -40,10 +41,10 @@ const reducer = (store = init, { payload, type }) => {
   }
 };
 
-export const fetchTodos = (token, id) => (dispatch) => {
+export const fetchTodos = (token, id, pnum) => (dispatch) => {
   dispatch(fetchUserTodosRequest());
   axios
-    .get(`http://localhost:313/${id}`, {
+    .get(`http://localhost:313/${id}?page=${pnum}`, {
       headers: {
         Authorization: "Bearer " + token,
       },

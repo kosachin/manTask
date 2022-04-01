@@ -13,8 +13,16 @@ const todoModel = require("../models/todo.model");
 //   }
 // });
 router.get("/:id", async (req, res) => {
+  const page = +req.query.page || 1;
+  const size = +req.query.size || 3;
+  const skip = (page - 1) * size;
   try {
-    const todos = await todoModel.find({ user_id: req.params.id });
+    const todos = await todoModel
+      .find({ user_id: req.params.id })
+      .skip(skip)
+      .limit(size)
+      .lean()
+      .exec();
     return res.status(200).send({ todos });
   } catch ({ message }) {
     return res.status(400).send({ error: message });
